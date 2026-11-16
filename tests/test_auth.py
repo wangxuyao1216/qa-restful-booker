@@ -12,12 +12,12 @@ import pytest
 
 from api.auth_api import AuthAPI
 from api.base import BaseAPI
-
+from api.health_api import HealthAPI
 
 @pytest.mark.smoke
 def test_ping_returns_201(api, base_url):
     """服务存活探针：/ping 正常返回 201。"""
-    resp = api.get(f"{base_url}/ping")
+    resp = HealthAPI(api, base_url).ping()
     BaseAPI.expect(resp, 201)
 
 

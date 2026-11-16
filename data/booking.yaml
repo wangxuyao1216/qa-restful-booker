@@ -1,0 +1,31 @@
+create:
+  - case: 标准数据
+    payload:
+      firstname: Jim
+      lastname: Brown
+      totalprice: 111
+      depositpaid: true
+      bookingdates: {checkin: "2026-11-10", checkout: "2026-11-15"}
+      additionalneeds: Breakfast
+  - case: 仅必填字段
+    payload:
+      firstname: Tom
+      lastname: Lee
+      totalprice: 0
+      depositpaid: false
+      bookingdates: {checkin: "2027-01-01", checkout: "2027-01-02"}
+  - case: 中文与长文本
+    payload:
+      firstname: 张
+      lastname: 三
+      totalprice: 9999
+      depositpaid: true
+      bookingdates: {checkin: "2026-12-01", checkout: "2026-12-31"}
+      additionalneeds: 提前入住、无烟房
+  - case: 零价格与最短行程
+    payload:
+      firstname: Zero
+      lastname: Price
+      totalprice: 0
+      depositpaid: false
+      bookingdates: { checkin: "2026-12-20", checkout: "2026-12-21" }
